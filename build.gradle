@@ -17,7 +17,15 @@ plugins {
 
 repositories {
   mavenCentral()
-    maven { url 'https://dl.bintray.com/kotlin/kotlin-dev' }
+  maven { url 'https://dl.bintray.com/kotlin/kotlin-dev' }
   maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 }
 
+kotlin {
+    targets {
+        fromPreset(kotlin.presets.linuxX64, 'opengl') {
+            compilations.main.outputKinds 'EXECUTABLE'
+            compilations.main.entryPoint 'io.mattmoore.gameengine.main'
+        }
+    }
+}
