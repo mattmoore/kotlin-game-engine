@@ -1,0 +1,6 @@
+package = libsdl
+
+headers = SDL2/SDL.h
+
+compilerOpts.osx = -I/usr/local/include
+linkerOpts.osx = -L/usr/local/lib -lsdl2
