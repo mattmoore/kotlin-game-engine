@@ -1,6 +1,9 @@
 package = libsdl
 
-headers = SDL2/SDL.h
+headers = SDL.h SDL_opengl.h SDL_mixer.h
 
-compilerOpts.osx = -I/usr/local/include
-linkerOpts.osx = -L/usr/local/lib -lsdl2
+compilerOpts.osx = -I/usr/local/include/SDL2 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers
+compilerOpts.linux = -I/usr/include/SDL2
+
+linkerOpts.osx = -L/usr/local/lib -L/System/Library/Frameworks/OpenGL.framework/Libraries -lSDL2 -lGL -lSDL2_mixer
+linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lSDL2 -lSDL2_mixer
